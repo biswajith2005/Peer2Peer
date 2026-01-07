@@ -3,7 +3,8 @@
 Peer2Peer is a **campus-focused peer-to-peer learning platform** that enables students to **teach, learn, and collaborate** by exchanging skills, solving doubts, and building reputation through real contributions.
 
 This project is designed as a **scalable, real-world EdTech product** using **Firebase backend services** with a **clean, student-friendly UI**.
-
+# Peer2Peer
+Short project description
 ---
 
 ## 🌟 Key Features
