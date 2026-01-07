@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Campus Skill Exchange</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#4f46e5'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .site-logo { height: 2.5rem; width: auto; display: block; border-radius: 0.5rem; box-shadow: 0 8px 24px rgba(79,70,229,0.12); padding: 0.25rem; background:#fff; }
+    @media (min-width:768px){ .site-logo{ height:3rem; } }
+    @media (min-width:1024px){ .site-logo{ height:3.5rem; } }
+  </style>
+
+  <style>
+    .fade { animation: fade 0.6s ease; }
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-gray-900">
+
+<!-- NAV -->
+<nav class="flex justify-between items-center px-6 py-4 bg-white shadow-sm">
+  <a href="dashboard.html" class="flex items-center gap-3">
+    <img src="assets/logo.png" alt="Peer2Peer logo" class="site-logo" />
+    <span class="sr-only">Peer2Peer</span>
+  </a>
+  <div id="navLinks" class="flex items-center gap-3"></div>
+</nav>
+
+<script type="module" src="./js/nav.js"></script>
+
+<!-- HERO -->
+<section class="min-h-[80vh] flex items-center justify-center px-6">
+  <div class="max-w-4xl text-center fade">
+    <h2 class="text-4xl md:text-6xl font-bold mb-6">
+      Learn what you love.<br />Teach what you know.
+    </h2>
+    <p class="text-gray-600 text-lg mb-8">
+      A campus-based peer learning platform where students exchange skills,
+      solve doubts, and build reputation — together.
+    </p>
+    <div class="flex justify-center gap-4 flex-wrap">
+      <a href="login.html" class="px-8 py-3 bg-primary text-white rounded-xl">
+        Join as Student
+      </a>
+      <a href="#features" class="px-8 py-3 border border-primary text-primary rounded-xl">
+        Explore Features
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE STATS (FUNCTIONAL SIGNAL) -->
+<section class="py-12 bg-white">
+  <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+    <div>
+      <p class="text-3xl font-bold" id="stat1">120+</p>
+      <p class="text-gray-500">Skills Shared</p>
+    </div>
+    <div>
+      <p class="text-3xl font-bold" id="stat2">340+</p>
+      <p class="text-gray-500">Doubts Solved</p>
+    </div>
+    <div>
+      <p class="text-3xl font-bold" id="stat3">85+</p>
+      <p class="text-gray-500">Active Mentors</p>
+    </div>
+    <div>
+      <p class="text-3xl font-bold">24/7</p>
+      <p class="text-gray-500">Peer Support</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-3xl font-bold text-center mb-12">
+      What You Can Do
+    </h3>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <div class="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
+        <h4 class="font-semibold text-lg mb-2">Skill Exchange</h4>
+        <p class="text-gray-600">
+          Learn one skill by teaching another — no money involved.
+        </p>
+      </div>
+
+      <div class="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
+        <h4 class="font-semibold text-lg mb-2">Anonymous Doubts</h4>
+        <p class="text-gray-600">
+          Ask questions anonymously and get help from peers.
+        </p>
+      </div>
+
+      <div class="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
+        <h4 class="font-semibold text-lg mb-2">Honor Score</h4>
+        <p class="text-gray-600">
+          Build your campus reputation through teaching and helping.
+        </p>
+      </div>
+
+      <div class="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
+        <h4 class="font-semibold text-lg mb-2">Resource Sharing</h4>
+        <p class="text-gray-600">
+          Share notes, PDFs, and learning links with peers.
+        </p>
+      </div>
+
+      <div class="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
+        <h4 class="font-semibold text-lg mb-2">Temporary Chat</h4>
+        <p class="text-gray-600">
+          Skill-based chat rooms that auto-expire after exchange.
+        </p>
+      </div>
+
+      <div class="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
+        <h4 class="font-semibold text-lg mb-2">Leaderboards</h4>
+        <p class="text-gray-600">
+          See top contributors across your campus.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- USER FLOW PREVIEW -->
+<section class="py-20 bg-white px-6">
+  <div class="max-w-4xl mx-auto text-center">
+    <h3 class="text-3xl font-bold mb-10">How a Student Uses the Platform</h3>
+
+    <ol class="space-y-4 text-left max-w-xl mx-auto">
+      <li>1️⃣ Sign up with college email</li>
+      <li>2️⃣ Add skills you know & want</li>
+      <li>3️⃣ Exchange skills with peers</li>
+      <li>4️⃣ Solve doubts & earn honor points</li>
+      <li>5️⃣ Grow reputation & badges</li>
+    </ol>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 bg-primary text-white text-center px-6">
+  <h3 class="text-3xl font-bold mb-4">
+    Built for Students. Powered by Peers.
+  </h3>
+  <p class="mb-8">
+    Start learning smarter — together.
+  </p>
+  <a href="login.html" class="px-8 py-3 bg-white text-primary rounded-xl font-semibold">
+    Get Started Now
+  </a>
+</section>
+
+<footer class="py-6 text-center text-gray-500 text-sm">
+  © 2026 • Campus Peer Learning Platform
+</footer>
+
+  <div id="toast" class="fixed bottom-8 right-8 hidden transition-all transform opacity-0 translate-y-10 bg-indigo-600 text-white px-4 py-3 rounded-lg shadow">
+    <p id="toastMessage" class="font-semibold"></p>
+  </div>
+
+</body>
+</html>

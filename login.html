@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login | Campus Skill Exchange</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .site-logo {
+      height: 3rem;
+      width: auto;
+      display: block;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 28px rgba(79,70,229,0.14);
+      padding: 0.25rem;
+      background:#fff;
+    }
+    @media (min-width:768px){ .site-logo{ height:4rem; } }
+  </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center bg-slate-50">
+
+  <div class="w-full max-w-md bg-white p-8 rounded-xl shadow-sm">
+
+    <div class="text-center mb-2">
+      <img src="assets/logo.png" alt="Peer2Peer logo" class="site-logo mx-auto" />
+      <span class="sr-only">Peer2Peer</span>
+    </div>
+
+    <p class="text-center text-gray-500 mb-6">
+      Learn what you love. Teach what you know.
+    </p>
+
+    <input id="email" type="email" placeholder="Email"
+      class="w-full p-3 border rounded-lg mb-3" />
+
+    <input id="password" type="password" placeholder="Password"
+      class="w-full p-3 border rounded-lg mb-4" />
+
+    <button onclick="login()"
+      class="w-full bg-indigo-600 text-white py-3 rounded-lg mb-3">
+      Login
+    </button>
+
+    <button onclick="showSignupForm()"
+      class="w-full border border-indigo-600 text-indigo-600 py-3 rounded-lg mb-4">
+      Sign Up
+    </button>
+
+    <!-- Inline hidden signup form -->
+    <div id="signupForm" class="hidden mt-4 space-y-3 p-4 bg-indigo-50 rounded-lg">
+      <input id="signupName" type="text" placeholder="Full name"
+        class="w-full p-3 border rounded-lg" />
+      <input id="signupDepartment" type="text" placeholder="Department / Branch"
+        class="w-full p-3 border rounded-lg" />
+      <input id="signupYear" type="text" placeholder="Year (e.g. 2nd Year)"
+        class="w-full p-3 border rounded-lg" />
+      <input id="signupOffered" type="text" placeholder="Skills offered (comma separated)"
+        class="w-full p-3 border rounded-lg" />
+      <input id="signupWanted" type="text" placeholder="Skills wanted (comma separated)"
+        class="w-full p-3 border rounded-lg" />
+
+      <div class="flex gap-3">
+        <button onclick="submitSignup()"
+          class="flex-1 bg-indigo-600 text-white py-2 rounded-lg">
+          Create Account
+        </button>
+        <button onclick="hideSignupForm()"
+          class="flex-1 border rounded-lg">
+          Cancel
+        </button>
+      </div>
+    </div>
+
+    <div class="text-center text-gray-400 mb-3">OR</div>
+
+    <button onclick="googleLogin()"
+      class="w-full bg-gray-900 text-white py-3 rounded-lg">
+      Continue with Google
+    </button>
+
+  </div>
+
+  <!-- AUTH SCRIPT ONLY -->
+  <script type="module" src="./js/auth.js"></script>
+
+  <!-- TOAST -->
+  <div id="toast"
+    class="fixed bottom-8 right-8 hidden transition-all transform opacity-0 translate-y-10
+           bg-indigo-600 text-white px-4 py-3 rounded-lg shadow">
+    <p id="toastMessage" class="font-semibold"></p>
+  </div>
+
+</body>
+</html>

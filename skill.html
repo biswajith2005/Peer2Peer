@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skill | Campus Skill Exchange</title>
+  <link rel="icon" href="assets/logo.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .site-logo { height: 2.5rem; width: auto; display: block; border-radius: 0.5rem; box-shadow: 0 8px 24px rgba(79,70,229,0.12); padding: 0.25rem; background:#fff; }
+    .modal { background: rgba(0,0,0,0.35); }
+  </style>
+</head>
+<body class="bg-slate-50 min-h-screen">
+
+  <nav class="flex justify-between items-center px-6 py-4 bg-white shadow-sm">
+    <a href="dashboard.html" class="flex items-center">
+      <img src="assets/logo.png" class="site-logo" alt="logo" />
+    </a>
+    <div id="navLinks" class="flex items-center gap-3"></div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto p-8">
+    <div id="skillContainer" class="bg-white rounded-2xl p-8 shadow">
+      <h1 id="skillTitle" class="text-3xl font-bold">Loading…</h1>
+      <p id="skillMeta" class="text-sm text-gray-500 mt-2">&nbsp;</p>
+
+      <div class="mt-6 text-gray-700" id="skillDescription">&nbsp;</div>
+
+      <div class="mt-6 flex gap-3">
+        <a id="mentorLink" href="#" class="text-indigo-600 hover:underline">Mentor</a>
+        <button id="requestBtn" class="ml-auto px-4 py-2 rounded bg-indigo-600 text-white"
+                onclick="openRequestModal()">Request Exchange</button>
+      </div>
+    </div>
+
+    <section class="mt-10">
+      <h3 class="text-xl font-semibold mb-3">Other details</h3>
+      <div id="extraInfo" class="text-sm text-gray-600">&nbsp;</div>
+    </section>
+  </main>
+
+  <!-- Request Modal -->
+  <div id="requestModal" class="fixed inset-0 hidden items-center justify-center modal z-50">
+    <div class="bg-white rounded-2xl p-6 w-full max-w-lg">
+      <h3 class="text-lg font-semibold">Request Exchange</h3>
+      <p class="text-sm text-gray-500">Send a short message to the mentor explaining what you'd like.</p>
+
+      <textarea id="requestMessage" class="w-full border rounded mt-3 p-3" rows="5" placeholder="Hi — I'd like to learn ..."></textarea>
+
+      <div class="flex justify-end gap-3 mt-3">
+        <button onclick="closeRequestModal()" class="px-4 py-2 rounded bg-gray-100">Cancel</button>
+        <button id="sendRequestBtn" onclick="sendSkillRequest()" class="px-4 py-2 rounded bg-indigo-600 text-white">Send Request</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="fixed bottom-8 right-8 hidden transition-all transform opacity-0 translate-y-10 bg-indigo-600 text-white px-4 py-3 rounded-lg shadow">
+    <p id="toastMessage" class="font-semibold"></p>
+  </div>
+
+  <script type="module" src="./js/nav.js"></script>
+  <script type="module" src="./js/skill.js"></script>
+</body>
+</html>

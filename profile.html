@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Profile | Campus Skill Exchange</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .site-logo {
+      height: 2.25rem;
+      width: auto;
+      display: block;
+      border-radius: 0.5rem;
+      box-shadow: 0 6px 18px rgba(79,70,229,0.1);
+      padding: 0.2rem;
+      background: #fff;
+    }
+    @media (min-width:768px){ .site-logo{ height:2.75rem; } }
+    @media (min-width:1024px){ .site-logo{ height:3rem; } }
+  </style>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50 to-purple-50">
+
+  <!-- NAVBAR -->
+  <nav class="flex justify-between items-center px-6 py-4 bg-white shadow-sm">
+    <a href="dashboard.html" class="flex items-center gap-3">
+      <img src="assets/logo.png" alt="Peer2Peer logo" class="site-logo" />
+      <span class="sr-only">Peer2Peer</span>
+    </a>
+    <div id="navLinks" class="flex items-center gap-3"></div>
+  </nav>
+
+  <main class="p-10 max-w-7xl mx-auto space-y-12">
+
+    <!-- PROFILE HEADER -->
+    <section class="bg-white rounded-2xl shadow-md p-8 flex items-center justify-between">
+
+      <div class="flex gap-6 items-center">
+        <div class="w-24 h-24 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500
+                    flex items-center justify-center text-white text-4xl font-bold">
+          <span id="avatar">U</span>
+        </div>
+
+        <div>
+          <h2 id="displayName" class="text-2xl font-bold">User Name</h2>
+          <p class="text-gray-600 mt-1">
+            <span id="displayBranch">Branch</span>
+            • <span id="displayYear">Year</span>
+            • Campus Student
+          </p>
+
+          <div class="flex gap-3 mt-3 text-sm">
+            <span id="honorScoreBadge" class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full">
+              ⭐ Honor Score: <span id="honorScore">0</span>
+            </span>
+            <span id="skillsCountBadge" class="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full">
+              🎓 Skills: <span id="skillsCount">0</span>
+            </span>
+            <span id="queriesCountBadge" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full">
+              ❓ Queries: <span id="queriesCount">0</span>
+            </span>
+            <span id="answersCountBadge" class="px-3 py-1 bg-green-50 text-green-600 rounded-full">
+              ✅ Answers: <span id="answersCount">0</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- EDIT BUTTON -->
+      <button onclick="openModal()"
+        class="px-4 py-2 rounded-lg text-sm bg-indigo-600 text-white
+               hover:bg-indigo-700 transition">
+        ✏️ Edit
+      </button>
+
+    </section>
+
+    <!-- SKILLS -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-white rounded-2xl shadow-md p-6">
+        <h3 class="font-semibold mb-3">🎓 Skills Offered</h3>
+        <p id="skillsOffered" class="text-sm text-gray-700">Not added</p>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-md p-6">
+        <h3 class="font-semibold mb-3">📚 Skills Wanted</h3>
+        <p id="skillsWanted" class="text-sm text-gray-700">Not added</p>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="bg-white rounded-2xl shadow-md p-6">
+      <h3 class="font-semibold mb-3">🧠 About Me</h3>
+      <p id="aboutMe" class="text-gray-700 leading-relaxed">
+        No description added.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- EDIT MODAL (FIXED) -->
+  <div id="editModal"
+       class="fixed inset-0 bg-black/40 hidden flex items-center justify-center z-50">
+
+    <div class="bg-white rounded-2xl p-8 w-full max-w-lg space-y-4">
+
+      <h3 class="text-xl font-bold">Edit Profile</h3>
+
+      <input id="nameInput" class="w-full border rounded-lg px-4 py-2" placeholder="Name" />
+      <input id="branchInput" class="w-full border rounded-lg px-4 py-2" placeholder="Branch" />
+      <input id="yearInput" class="w-full border rounded-lg px-4 py-2" placeholder="Year" />
+
+      <textarea id="aboutInput" class="w-full border rounded-lg px-4 py-2"
+                placeholder="About Me"></textarea>
+
+      <textarea id="offeredInput" class="w-full border rounded-lg px-4 py-2"
+                placeholder="Skills Offered (comma separated)"></textarea>
+
+      <textarea id="wantedInput" class="w-full border rounded-lg px-4 py-2"
+                placeholder="Skills Wanted (comma separated)"></textarea>
+
+      <div class="flex justify-end gap-3 pt-3">
+        <button onclick="closeModal()"
+                class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200">
+          Cancel
+        </button>
+        <button onclick="saveAndClose()"
+                class="px-4 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700">
+          Save
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PROFILE SCRIPT -->
+  <script type="module" src="./js/profile.js"></script>
+  <script type="module" src="./js/nav.js"></script>
+
+  <!-- MODAL CONTROLS -->
+  <script>
+    const modal = document.getElementById("editModal");
+
+    function openModal() {
+      modal.classList.remove("hidden");
+      if (window.loadProfile) window.loadProfile();
+    }
+
+    function closeModal() {
+      modal.classList.add("hidden");
+    }
+
+    async function saveAndClose() {
+      if (window.saveProfile) await window.saveProfile();
+      closeModal();
+    }
+  </script>
+
+  <div id="toast" class="fixed bottom-8 right-8 hidden transition-all transform opacity-0 translate-y-10 bg-indigo-600 text-white px-4 py-3 rounded-lg shadow">
+    <p id="toastMessage" class="font-semibold"></p>
+  </div>
+
+</body>
+</html>
